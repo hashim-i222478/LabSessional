@@ -60,4 +60,14 @@ jobs:
           docker build -t hashim12/cafe-management-system-order-services:latest -f order-services/Dockerfile .
           docker push hashim12/cafe-management-system-order-services:latest
 
-      
+      - name: Build and push menu-service image
+        uses: docker/build-push-action@v3
+        with:
+          files: |
+            menu-services/Dockerfile
+          context: menu-services
+          push: true
+          tags: hashim12/cafe-management-system-menu-services:latest
+        run: |
+          docker build -t hashim12/cafe-management-system-menu-services:latest -f menu-services/Dockerfile .
+          docker push hashim12/cafe-management-system-menu-services:latest
